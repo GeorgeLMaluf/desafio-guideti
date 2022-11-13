@@ -9,5 +9,10 @@ class AtivosService
       Ativo.where(:data => start_date..end_date)
     )
 
+    response = ativos.map do |ativo|
+      AtivoSerializer.new(ativo)
+    end
+
+    response
   end
 end
