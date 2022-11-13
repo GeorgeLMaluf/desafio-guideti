@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :api, defaults: { format: 'json'} do
     namespace :v1 do
-      get 'ativos/:nome_ativo', to: 'ativos#index', as: 'ativos'
+      get 'ativos/:nome_ativo', to: 'ativos#index', as: 'ativos', constraints: { nome_ativo: /[^\/]+/}
     end
   end
 end
