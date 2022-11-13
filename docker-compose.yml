@@ -19,3 +19,5 @@ services:
       - ".env"
     depends_on:
     - postgres
+    tty: true
+    stdin_open: true
