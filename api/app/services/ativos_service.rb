@@ -5,18 +5,20 @@ class AtivosService
     end_date = Date.today
     start_date = end_date - 30.days
 
-    ativos = Ativo.where('lower(name) = ?', nome_ativo.downcase).and(
-      Ativo.where(data: start_date..end_date)
-    )
+    list_ativos = list_ativos_from_database(nome_ativo, start_date, end_date)
 
-    return [] if ativos.empty?
+    if list_ativos.empty?
+      list_ativos =  Third::Yahoo::YahooService.new.call(nome_ativo, start_date, end_date)      
+    end
 
-    map_ativos_to_variacao(ativos)
+    map_ativos_to_variacao(list_ativos)
   end
 
   private
 
   def map_ativos_to_variacao(ativos_list)
+    return if ativos_list.nil?
+
     ativos_list.map.with_index do |ativo, index|
       variacao = VariacaoAtivo.new(id: ativo.id, name: ativo.name,
                                    data: ativo.data, value: ativo.value,
@@ -27,5 +29,11 @@ class AtivosService
       end
       variacao
     end
+  end
+
+  def list_ativos_from_database(nome_ativo, start_date, end_date)
+    Ativo.where('lower(name) = ?', nome_ativo.downcase).and(
+        Ativo.where(data: start_date..end_date)
+    )
   end
 end
