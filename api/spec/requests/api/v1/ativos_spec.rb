@@ -1,15 +1,24 @@
-# frozen_string_literal: true
+require 'swagger_helper'
 
-require 'rails_helper'
+RSpec.describe 'api/v1/ativos', type: :request do
 
-RSpec.describe "Api::V1::Ativos", type: :request do
-  let!(:ativo_hoje) { create(:ativo) }
-  let!(:ativo_ontem) {create(:ativo, data: Date.today - 1.day, value: 0.8) }
+  path '/api/v1/ativos/{nome_ativo}' do
+    # You'll want to customize the parameter types...
+    parameter name: 'nome_ativo', in: :path, type: :string, description: 'nome_ativo'
 
-  it 'Get a valid active' do
-    get '/api/v1/ativos/PETR4.SA'
+    get('list ativos') do
+      response(200, 'successful') do
+        let(:nome_ativo) { 'PETR4.SA' }
 
-    expect(response).to have_http_status(:ok)
-    expect(response.body).not_to be_empty
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
+        run_test!
+      end
+    end
   end
 end
