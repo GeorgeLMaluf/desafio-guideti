@@ -18,6 +18,30 @@
   align-items: center;
 }
 
+table {
+  border: 0px;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 4px;
+}
+
+thead {
+  color:#212529;
+}
+
+th {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  text-align: left;
+  background-color: #212529;
+  color: white;
+}
+
+
+
 footer {
   margin-top: 8px;
   position: fixed;

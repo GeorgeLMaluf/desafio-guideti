@@ -9,7 +9,7 @@
     </form>
   </div>
   <div>
-    <table class="table table-bordered table-striped">
+    <table>
       <thead>
         <tr>
           <th>Data</th>
@@ -19,11 +19,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>01/01/2001</td>
-          <td>1.2</td>
-          <td>-</td>
-          <td>-</td>
+        <tr *ngFor="let variacao of variacoes">
+          <td>{{ variacao.data * 1000 | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ variacao.value | currency:'BRL':true:'1.2-2'}}</td>
+          <td style="text-align: right;">{{ variacao.d1_variation | number:'1.2-2' }} %</td>
+          <td style="text-align: right;">{{ variacao.begin_variation | number:'1.2-2' }} %</td>
         </tr>
       </tbody>
     </table>

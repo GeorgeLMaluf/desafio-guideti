@@ -15,10 +15,9 @@ export class AppComponent {
   }
 
   onAtivoSearch(search: { nome_ativo: string}) {
-    console.log(search.nome_ativo)
-    this.http.post('http://localhost:3000/api/v1/ativos/' + search.nome_ativo, null)
-             .subscribe((res) => {
-              console.log(res)
-             });
+    this.http.post('http://localhost:3000/api/v1/ativos/' + search.nome_ativo, {})
+                    .subscribe((res: any) => {
+                      this.variacoes = res.data
+                    })
   }
 }
