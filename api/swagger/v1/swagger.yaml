@@ -12,7 +12,7 @@ paths:
       required: true
       schema:
         type: string
-    get:
+    post:
       summary: list ativos
       responses:
         '200':

@@ -6,9 +6,9 @@ RSpec.describe 'api/v1/ativos', type: :request do
     # You'll want to customize the parameter types...
     parameter name: 'nome_ativo', in: :path, type: :string, description: 'nome_ativo'
 
-    get('list ativos') do
+    post('list ativos') do
       response(200, 'successful') do
-        let(:nome_ativo) { 'PETR4.SA' }
+        let(:nome_ativo) { '123' }
 
         after do |example|
           example.metadata[:response][:content] = {
