@@ -7,8 +7,4 @@ class VariacaoAtivoSerializer < ActiveModel::Serializer
              :value,
              :d1_variation
              :begin_variation
-
-  def data
-    object.data.to_time.to_i
-  end
 end

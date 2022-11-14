@@ -21,7 +21,7 @@ class AtivosService
 
     ativos_list.map.with_index do |ativo, index|
       variacao = VariacaoAtivo.new(id: ativo.id, name: ativo.name,
-                                   data: ativo.data, value: ativo.value,
+                                   data: ativo.data.to_time.to_i, value: ativo.value,
                                    d1_variation: nil, begin_variation: nil)
       if index.positive?
         variacao.calculate_begin_variation(ativos_list[0].value)
