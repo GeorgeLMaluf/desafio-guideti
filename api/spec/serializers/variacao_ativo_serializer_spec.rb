@@ -13,7 +13,7 @@ RSpec.describe "VariacaoAtivoSerializer", type: :serializer do
     expect(subject['id']).to eq(variacao.id)
     expect(subject['name']).to eq(variacao.name)
     expect(subject['value']).to eq(variacao.value)
-    expect(subject['data']).to eq(variacao.data.to_time.to_i)
+    expect(subject['data']).to eq(variacao.data.strftime("%Y-%m-%d"))
     expect(subject['d1_variation']).to be_nil
     expect(subject['begin_variation']).to be_nil
   end
