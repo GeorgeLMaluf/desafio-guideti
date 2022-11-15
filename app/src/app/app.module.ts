@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MatIconModule } from '@angular/material/icon'
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
     MatIconModule,
+    NgChartsModule,
     AppRoutingModule
   ],
   providers: [],
