@@ -24,7 +24,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let variacao of variacoes">
-            <td>{{ variacao.data * 1000 | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ variacao.data * 1000 | date: 'dd/MM/yyyy': 'UTC' }}</td>
             <td>{{ variacao.value | currency:'BRL':"symbol":'1.2-2'}}</td>
             <td style="text-align: right;">{{ variacao.d1_variation | number:'1.2-2' }} %</td>
             <td style="text-align: right;">{{ variacao.begin_variation | number:'1.2-2' }} %</td>
