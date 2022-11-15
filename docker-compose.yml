@@ -23,10 +23,13 @@ services:
     stdin_open: true
   app:
     build: ./app
-    command: ng serve --host 0.0.0.0 --port 4200
+    command: npm start
     volumes:
-      - ./app:/app
+      - ./app:/home/node/app
+      - /home/node/app/node_modules
     ports:
       - "4200:4200"
     depends_on:
       - api
+volumes:
+  node_modules:
