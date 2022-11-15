@@ -1,0 +1,39 @@
+<div>
+  <div class="navbar">
+    <h1 style="margin: 8px 0;">Desafio Guideti</h1>
+  </div>
+  <div class="content">
+    <form #searchForm="ngForm" (ngSubmit)="onAtivoSearch(searchForm.value)"> 
+      <input type="text" name="nome_ativo" placeholder="Nome do ativo" ngModel />
+      <button type="submit">Pesquisar</button>
+    </form>
+  </div>
+  <div style="display: flex;">
+    <div style="min-width: 60%;">
+      <canvas #myCanvas></canvas>
+    </div>
+    <div style="min-width: 40%">
+      <table *ngIf="variacoes.length > 0">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Valor</th>
+            <th>Variação data anterior</th>
+            <th>Variação primeira data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let variacao of variacoes">
+            <td>{{ variacao.data * 1000 | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ variacao.value | currency:'BRL':"symbol":'1.2-2'}}</td>
+            <td style="text-align: right;">{{ variacao.d1_variation | number:'1.2-2' }} %</td>
+            <td style="text-align: right;">{{ variacao.begin_variation | number:'1.2-2' }} %</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <footer>
+    George L. Maluf
+  </footer>
+</div>

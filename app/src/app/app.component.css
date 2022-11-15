@@ -1,0 +1,55 @@
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  background-color: #020c6d;
+  color: #fff;
+}
+
+.content {
+  display: flex;
+  margin: 82px auto 32px;
+  padding: 0 16px;
+  max-width: 960px;
+  flex-direction: column;
+  align-items: center;
+}
+
+table {
+  border: 0px;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 4px;
+}
+
+thead {
+  color:#212529;
+}
+
+th {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  text-align: left;
+  background-color: #212529;
+  color: white;
+}
+
+
+
+footer {
+  margin-top: 8px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  align-items: center;
+  line-height: 20px;
+  background-color: #020c6d;
+  color: #fff;
+}
